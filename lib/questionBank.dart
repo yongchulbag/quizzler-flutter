@@ -1,7 +1,9 @@
 import 'questions.dart';
 
 class QuizBank {
-  List<QuestionForm> questionBank = [
+  int _questionNumber = 0;
+
+  List<QuestionForm> _questionBank = [
     QuestionForm(t: 'Some cats are actually allergic to humans', a: true),
     QuestionForm(
         t: 'You can lead a cow down stairs but not up stairs.', a: false),
@@ -32,4 +34,18 @@ class QuizBank {
         t: 'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         a: true),
   ];
+
+  void nextQuestion() {
+    if (_questionNumber < (_questionBank.length - 1)) {
+      _questionNumber++;
+    }
+  }
+
+  String getQuestionText() {
+    return _questionBank[_questionNumber].qText;
+  }
+
+  bool getCorrectAnswer() {
+    return _questionBank[_questionNumber].qAnswer;
+  }
 }
