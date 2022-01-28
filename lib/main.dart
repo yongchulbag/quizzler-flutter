@@ -41,7 +41,7 @@ class _QuizPageState extends State<QuizPage> {
 
       quizBank.nextQuestion();
 
-      if (quizBank.isFinished() == true) {
+      if (quizBank.isFinished() == true) { //if 문을 뒤로 넘겨 초기화를 정확히 함~!
         Alert(
           context: context,
           title: '끝났군요',
