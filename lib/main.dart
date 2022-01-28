@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'questionBank.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() => runApp(Quizzler());
 
@@ -39,6 +40,18 @@ class _QuizPageState extends State<QuizPage> {
       }
 
       quizBank.nextQuestion();
+
+      if (quizBank.isFinished() == true) {
+        Alert(
+          context: context,
+          title: '끝났군요',
+          desc: '모든 퀴즈를 다 푸셨습니다',
+        ).show();
+
+        quizBank.reset();
+
+        scoreKeeper = [];
+      }
     });
   }
 
